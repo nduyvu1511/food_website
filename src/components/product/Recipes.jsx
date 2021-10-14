@@ -23,7 +23,7 @@ export const Recipes = () => {
         <h1 className="font-bold text-xl sm:text-2xl md:text-3xl lg:text-40">
           Top recipes
         </h1>
-        <Link to="/menu" className="flex items-center">
+        <Link to="/shop" className="flex items-center">
           <p className="mr-2">See all</p>
           <button className="w-7 h-7 flex items-center justify-center rounded-md bg-green">
             <FiChevronRight className="text-white text-base" />

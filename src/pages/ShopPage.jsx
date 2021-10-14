@@ -114,7 +114,11 @@ const ShopPage = () => {
           <div
             onClick={() => setOpenCategoryMobile(false)}
             className={`fixed top-0 left-0 right-0 bottom-0 bg-black50 z-999 transition-all duration-300
-               ${openCategoryMobile ? "visible opacity-100" : "opacity-0 invisible"}`}
+               ${
+                 openCategoryMobile
+                   ? "visible opacity-100"
+                   : "opacity-0 invisible"
+               }`}
           ></div>
           <section
             className="layout mt-20 grid grid-cols-1 

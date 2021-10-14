@@ -15,6 +15,7 @@ const ZoomImage = ({ setImageZoom, currentImage, images }) => {
   return (
     <div
       onClick={() => setImageZoom && setImageZoom(false)}
+      onKeyPress={(e) => console.log(e.target)}
       className="bg-black fixed top-0 left-0 right-0 bottom-0 z-1000"
     >
       <div className="">

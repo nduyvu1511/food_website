@@ -49,10 +49,6 @@ function ProductDetail() {
   const currentUser = useSelector((state) => state.user.currentUser)
   const wishList = useSelector((state) => state.wishList)
 
-  useEffect(() => {
-    currentUser && dispatch(fetchWishList(currentUser.id))
-  }, [currentUser, dispatch])
-
   const { data: productsRelated } = useSelector(
     (state) => state.product.productDetailRelated
   )

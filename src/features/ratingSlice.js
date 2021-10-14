@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit"
 
 const ratingSlice = createSlice({
   name: "rating",
@@ -17,7 +17,7 @@ const ratingSlice = createSlice({
         "https://secure.gravatar.com/avatar/58339abbf7950af484818a32567a68b2?s=120&d=mm&r=g",
     },
     {
-      name: "Harry Kane",
+      name: "Ben Affleck",
       stars: 4.2,
       review: `The best pizza we ever had in (City)!! The pizza was so delicious and with so many flavor could choose that we even visited the pizza shop twice in the same day!
         You could just take away or standing finish your pizza in the store.`,
@@ -30,7 +30,7 @@ const ratingSlice = createSlice({
         "https://secure.gravatar.com/avatar/58339abbf7950af484818a32567a68b2?s=120&d=mm&r=g",
     },
     {
-      name: "Jesse Lingard",
+      name: "Gal Gadot",
       stars: 4.0,
       review:
         "I had the best pizza of my life at that time. Since then I have visited this place numerous times and my opinion about this pizza has still not changed.",
@@ -43,7 +43,7 @@ const ratingSlice = createSlice({
         "https://secure.gravatar.com/avatar/58339abbf7950af484818a32567a68b2?s=120&d=mm&r=g",
     },
     {
-      name: "Ronaldo",
+      name: "Henry Cavill",
       stars: 4.5,
       review:
         "The pizza here is real amazing and would recommend trying these guys out. They have a great toppings selections and great prices on a single sliced.",
@@ -56,7 +56,7 @@ const ratingSlice = createSlice({
         "https://secure.gravatar.com/avatar/58339abbf7950af484818a32567a68b2?s=120&d=mm&r=g",
     },
     {
-      name: "Duy Vu",
+      name: "Tom Hardy",
       stars: 4.5,
       review:
         "I am 6 feet tall and 220 lbs. This shirt fit me perfectly in the chest and shoulders. My only complaint is that it is so long! I like to wear polo shirts untucked. This shirt goes completely past my rear end. If I wore it with ordinary shorts, you probably wouldnt be able to see the shorts at all – completely hidden by the shirt. It needs to be 4 to 5 inches shorter in terms of length to suit me. I have many RL polo shirts, and this one is by far the longest. I dont understand why.",
@@ -72,10 +72,10 @@ const ratingSlice = createSlice({
 
   reducers: {
     addReview: (state, action) => {
-      state.push(action.payload);
+      state.push(action.payload)
     },
   },
-});
+})
 
-export const { addReview } = ratingSlice.actions;
-export default ratingSlice.reducer;
+export const { addReview } = ratingSlice.actions
+export default ratingSlice.reducer

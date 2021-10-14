@@ -13,6 +13,7 @@ const BannerLast = () => {
         name="Meals"
         price={19.99}
         type="Fast Food"
+        id={1}
       />
       <BannerLastItems
         color="bannerOrange"
@@ -20,6 +21,7 @@ const BannerLast = () => {
         name="Burgers"
         price={12.99}
         type="House"
+        id={5}
       />
       <BannerLastItems
         color="bannerYellow"
@@ -27,6 +29,7 @@ const BannerLast = () => {
         name="Salats"
         price={10.99}
         type="Salats"
+        id={4}
       />
     </section>
   );

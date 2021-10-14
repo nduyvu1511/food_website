@@ -1,9 +1,11 @@
 import React from "react"
 import { Fade } from "react-awesome-reveal"
-import { Link } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 import { fade50px, fadeLeft } from "../../utils/animation"
 
-export const BannerLastItems = ({ image, name, price, color, type }) => {
+export const BannerLastItems = ({ image, name, price, color, type, id }) => {
+  const history = useHistory()
+
   return (
     <div
       className={
@@ -50,12 +52,12 @@ export const BannerLastItems = ({ image, name, price, color, type }) => {
             ${price}
           </p>
           <div className="">
-            <Link
-              to="/menu"
+            <button
+              onClick={() => history.push(`/menu/${id}`)}
               className="btn-primary bg-white text-black w-40 uppercase hover:bg-black"
             >
               order now
-            </Link>
+            </button>
           </div>
         </Fade>
       </div>

@@ -85,7 +85,7 @@ const Banner = () => {
 
       <Link
         to="/menu"
-        className="absolute -bottom-5 left-1/2 transform -translate-x-1/2 btn-primary"
+        className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 btn-primary"
       >
         MENUS
       </Link>

@@ -15,7 +15,7 @@ const NavTop = () => {
         <div className="flex items-center ">
           <div className="flex items-center">
             <BiMobileAlt className="text-white text-sm" />
-            <p className="ml-3 text-sm font-light uppercase">call us: 0977066216</p>
+            <p className="ml-3 text-sm font-light uppercase">call us: +381 65 666 6666</p>
           </div>
           <div className="flex ml-6 items-center">
             <IoLocationOutline className="text-white text-sm" />
