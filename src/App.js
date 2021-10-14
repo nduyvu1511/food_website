@@ -43,7 +43,9 @@ function App() {
         shortWarningMsg(cartMessage.title)
       }
     }
+  }, [isLoading, cartMessage])
 
+  useEffect(() => {
     if (wishListMessage && wishListLoading === false) {
       if (wishListMessage.type === "success") {
         shortSuccessMsg(wishListMessage.title)
@@ -51,7 +53,7 @@ function App() {
         shortWarningMsg(wishListMessage.title)
       }
     }
-  }, [isLoading, cartMessage, wishListLoading, wishListMessage])
+  }, [wishListLoading, wishListMessage])
 
   return (
     <Router>
