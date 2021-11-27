@@ -29,6 +29,7 @@ import { fetchWishList } from "../features/wishListSlice"
 import ButtonAddTowishList from "../components/button/ButtonAddToWishList"
 import ProductGridLayout from "../components/product/ProductGridLayout"
 import ZoomImage from "../components/ImageProduct/ZoomImage"
+import ProductItemLoader from "./../components/loading/productItemLoader"
 
 function ProductDetail() {
   const { id } = useParams()
@@ -83,14 +84,17 @@ function ProductDetail() {
   }, [dispatch, product])
 
   return (
-    <>
-      {isLoading ? (
-        <Loading />
-      ) : (
-        <section>
-          <PageHeader title={product.name} type="productDetail" />
-          {Object.keys(product).length > 0 && (
-            <section className="mt-8 lg:mt-16 max-w-7xl w-full mx-auto px-5 md:px-5 xl:px-0">
+    <section>
+      <PageHeader title={product.name} type="productDetail" />
+      <section className="mt-8 lg:mt-16 max-w-7xl w-full mx-auto px-5 md:px-5 xl:px-0">
+        {isLoading ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <ProductItemLoader />
+            <ProductItemLoader />
+          </div>
+        ) : (
+          Object.keys(product).length > 0 && (
+            <>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 {/* image product */}
                 <div className="">
@@ -340,11 +344,11 @@ function ProductDetail() {
                   products={productsRelated}
                 />
               </section>
-            </section>
-          )}
-        </section>
-      )}
-    </>
+            </>
+          )
+        )}
+      </section>
+    </section>
   )
 }
 
