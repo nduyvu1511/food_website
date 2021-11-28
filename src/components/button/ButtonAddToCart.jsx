@@ -21,15 +21,15 @@ const ButtonAddToCart = ({
   const history = useHistory()
   const currentUser = useSelector((state) => state.user.currentUser)
   const dispatch = useDispatch()
-  const { data: carts, isLoading } = useSelector(
-    (state) => state.cart.allCartItems
-  )
+  const isLoading = useSelector((state) => state.cart.addToCartLoading)
+  const { data: carts } = useSelector((state) => state.cart.allCartItems)
 
   const handleAddToCart = () => {
     if (!currentUser) {
       history.push("/log-in")
       return
     }
+
     deleteCartItem && deleteCartItem()
 
     if (quantity <= 0) {
@@ -37,38 +37,40 @@ const ButtonAddToCart = ({
       return
     }
 
-    const newProduct = {
-      id: uuidv4(),
-      productId: type === "wishListPage" ? product.productId : product.id,
-      name: product.name,
-      userId: currentUser.id,
-      quantity: quantity,
-      image: product.images.image1,
-      price: product.prices.lastPrice,
-    }
+    if (!isLoading) {
+      const newProduct = {
+        id: uuidv4(),
+        productId: type === "wishListPage" ? product.productId : product.id,
+        name: product.name,
+        userId: currentUser.id,
+        quantity: quantity,
+        image: product.images.image1,
+        price: product.prices.lastPrice,
+      }
 
-    if (carts.length === 0) {
-      dispatch(fetchAddCartProducts(newProduct))
-      dispatch(addCartMessage({ title: "Added to cart", type: "success" }))
-      return
-    }
+      if (carts.length === 0) {
+        dispatch(fetchAddCartProducts(newProduct))
+        dispatch(addCartMessage({ title: "Added to cart", type: "success" }))
+        return
+      }
 
-    const cartQuantity = carts.find(
-      (item) =>
-        item.productId === newProduct.productId &&
-        item.userId === currentUser.id
-    )
-    if (cartQuantity) {
-      dispatch(
-        fetchEditQuantityCartProducts({
-          id: cartQuantity.id,
-          quantity: cartQuantity.quantity + quantity,
-        })
+      const cartQuantity = carts.find(
+        (item) =>
+          item.productId === newProduct.productId &&
+          item.userId === currentUser.id
       )
-      dispatch(addCartMessage({ title: "Updated to cart", type: "success" }))
-    } else {
-      dispatch(fetchAddCartProducts(newProduct))
-      dispatch(addCartMessage({ title: "Added to cart", type: "success" }))
+      if (cartQuantity) {
+        dispatch(
+          fetchEditQuantityCartProducts({
+            id: cartQuantity.id,
+            quantity: cartQuantity.quantity + quantity,
+          })
+        )
+        dispatch(addCartMessage({ title: "Updated to cart", type: "success" }))
+      } else {
+        dispatch(fetchAddCartProducts(newProduct))
+        dispatch(addCartMessage({ title: "Added to cart", type: "success" }))
+      }
     }
   }
 
